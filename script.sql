@@ -1,5 +1,6 @@
 --melihat semua database => \l
-select datname from pg_database;
+
+SELECT datname FROM pg_database;
 
 --melihat semua tabel = \dt
 select  * from pg_tables where schemaname = 'public' ;
@@ -687,7 +688,7 @@ CREATE DATABASE belajar_restore;
 -- BACKUP DATABASE
 -- menggunakan applikasi console(terminal, CMD, dll)
 -- harus menggunakan super user
-pg_dump --host=localhost --port=5432 --dbname=belajar --format=plain --file=/home/alliano-dev/Latihan/Database/pg_backup1.sql --username=alliano-dev
+pg_dump --host=localhost --port=5432 --dbname=belajar --format=plain --file=/home/alliano-dev/Latihan/Database/pg_backup1.sql --username=alliano-dev --password
 
 -- RESTORE DB
 psql --host=localhost --port=5432 --dbname=belajar_restore --username=alliano-dev --file=/home/alliano-dev/Latihan/Database/pg_backup.sql --password
