@@ -136,3 +136,62 @@ Untuk menjalankan konfigurasi yaml kita, jalankan perintah berikut ini :
 docker compose -f docker-compose.yaml up -d
 ```
 
+# PSQL
+Saat kita menginstall postgresql, by default kita akan diberikan database client berbasis CLI yang namanya psql.  
+Kita datapat menjalankan Postgresql pada command prompt atau terminal, dengan command :
+``` bash
+psql --username=alliano-dev --host=127.0.0.1 --port=5432 --dbname=postgres --password
+```
+Lalu enter, dan masukan password yang di setting saat proses installation.
+
+# Dbeaver
+Karna penggunaan psql berbasis cli dan agak ribet, maka kita dapat memanfatkan dbeaver sebagai pengganti psql.
+Dbeaver merupakan database client yang berbasis GUI desktop dan juga bersifat opensource.  
+Dbeaver memiliki fitur yang sangat banyak, dan mudah dioperasikan
+Dbeaver ini telah mensuport banyak Operasi sistem diantaranya yaitu Mac, Linux, Windows
+https://dbeaver.io/download/
+
+# VScode Extension
+Kita juga dapat memanfaatkan ektensi Vscode untuk alternatif database client  
+Kita dapat menginstall extension Database Client untuk pengganti psql
+![vscode extension](./images/vscode-extension.png)
+
+![dashbord](./images/dashbord-vscode-extention.png)
+
+# Melihat semua database
+Untuk melihat semua database menggunakan psql :
+``` sh
+\l
+```
+Jika kalin menggunakan database clien yang berbasis GUI gunakan perintah sebagai berikut :
+``` sql
+SELECT datname FROM pg_database;
+```
+
+# Membuat dan menghapus database
+Membuat database
+``` sql
+CREATE DATABASE belajar_postgres;
+```
+Menghapus database
+``` sql
+DROP DATABASE belajar_database
+```
+**NOTE**
+> belajar_database merupakan nama database, kalian bebas mau beri nama seperti apa
+
+# Pindah Database
+Terkadang kita ingin pindah database
+Misalnya kita memiliki 2 database, yaitu :
+* belajar_postgres 
+* dan belajar  
+
+Dan database yang sedang kita gunakan adalah database belajar_postgres.
+Jikalau kita ingin berpindah ke database belajar, maka kita dapat menggunakan commad sebagai berikut :
+``` sh
+\c  belajar
+```
+# Tipe Data
+Postgresql memiliki tipe data, untuk menentukan tipe data apa yang akan disimpan pada tabel yang ada didalam database.  
+Tersedia banyak sekali tipe data yang ada pada postgresql, mulai dari tipedata yang basic samapi kompleks.  
+Tipedata biasanya kita akan gunakan sesuai dengan kolom tabel yang kita buat.
